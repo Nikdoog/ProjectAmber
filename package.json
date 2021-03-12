@@ -1,0 +1,30 @@
+{
+  "name": "projectamber",
+  "version": "1.0.0",
+  "description": "Amber Studio Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MediaStudy321/ProjectAmber.git"
+  },
+  "keywords": [
+    "Amber",
+    "Studio",
+    "Project",
+    "Game",
+    "Online"
+  ],
+  "author": "Shane Phillips",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/MediaStudy321/ProjectAmber/issues"
+  },
+  "homepage": "https://github.com/MediaStudy321/ProjectAmber#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
