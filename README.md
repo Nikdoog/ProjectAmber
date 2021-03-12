@@ -1,1 +1,2 @@
 # ProjectAmber
+Task 1 notes: ProjectAmber is a browser based RPG about royalty, love, and consequences. Players will have to decide the fate of princes and princesses in their efforts to become the most powerful kingdom.

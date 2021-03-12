@@ -1,6 +1,8 @@
 const express = require('express');
+const path = require('path');
 
-const staticPath = __dirname;
+const clientPath = path.join(__dirname, '../client');
+const staticPath = path.join(clientPath, '/static');
 
 const app = express();
 
