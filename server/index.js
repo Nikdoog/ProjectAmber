@@ -8,4 +8,4 @@ const app = express();
 
 app.use(express.static(staticPath));
 
-app.listen(1000);
+app.listen(4000);
