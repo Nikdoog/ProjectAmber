@@ -32,4 +32,4 @@ app.use(session({
     name: 'ProjectAmber'
 }));
 
-app.listen(4000);
+app.listen(port);
