@@ -2,9 +2,11 @@
 <html>
 <head>
 <title>Amber Skeleton</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
 </head>
 <body>
-
 <h1>Hello, and welcome to the amber skeleton. This page was brought to you by worldbuilder, Thomas Mahoney</h1>
 <p>Here are the links.</p>
 
@@ -14,5 +16,65 @@
 
 <a href="profile.html">profiles</a>
 
+<form method="post" action="login">
+    <table>
+        <tr>
+            <th colspan="2">
+                Log in
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                <input type="text" name="username"/>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                <input type="password" name="password"/>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">
+                    Log In
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<table>
+    <tr>
+<td><form id="registration" action="register" method="POST">
+    New Username: <input type="text" name="username" id="regname" /><br/>
+    Password: <input type="password" name="password" id="pw" /><br/>
+    Confirm Password: <input type="password" id="pwconfirm" /><br/>
+    <div align="center"><button type="submit" id="registerbutton" disabled>Welcome!</button></div>
+</form></td>
+</tr>
+</table>
+<script>
+    $(()=>{
+        $('#regname, #pw, #pwconfirm').on('keyup', (key)=>{
+            if($('#regname').val() == ''
+                || $('#pw').val() == ''
+                || $('#pw').val()!=$('#pwconfirm').val()) {
+                $('#registerbutton').prop('disabled', 'true');
+            }
+            else {
+                $('#registerbutton').removeAttr('disabled');
+            }
+        })
+    });
+    </script>
 </body>
 </html> 
+
