@@ -9,7 +9,7 @@ const {Player, Country} = require('./models.js');     // Game models
 const { Recoverable } = require('repl');
 
 // Environmental variables
-const dotenv = require('dotenv').config(); 
+const dotenv = require('dotenv').config();
 const port = process.env.PORT || 4000;
 const dburl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/martians'
 
@@ -19,7 +19,6 @@ const staticPath = path.join(clientPath, '/static/');
 const viewsPath = path.join(clientPath,'/views/')
 
 // Server setup
-
 const app = express();
 
 app.use(express.static(staticPath));
@@ -39,7 +38,6 @@ app.use(session({
 
 
 // Database connection
-
 try {
     mongoose.connect(dburl, {useNewUrlParser: true, useUnifiedTopology: true})
 }
@@ -48,7 +46,6 @@ catch(e) {
 }
 
 // Launch!
-
 app.listen(port);
 console.log('Server running on port '+port);
 
@@ -56,7 +53,6 @@ console.log('Server running on port '+port);
 // View router
 
 // testing
-
 app.set('view engine','ejs');
 app.set('views',viewsPath);
 
@@ -72,7 +68,6 @@ const authenticated = (req, res, next) =>{
 }
 
 //testing
-
 app.get('/', function(req, res) {
     console.log(req.session)
     res.render('index', {data: req.session});
@@ -87,10 +82,16 @@ app.post('/welcome', (req, res) => {
     res.send('SUCCESS');
 });
 
+
+//decision posting
+app.post('/writeDecision', function(req,res){
+  res.redirect('/about');
+});
+
+
 //  TODO: Post routes for registration and login, country creation.
 
 // testing
-
 app.get('/register', (req, res) => {
     res.render('register', {data: req.session});
 });
@@ -108,7 +109,7 @@ app.post('/register', async (req, res)=>{
             case 11000:
                 res.send('That username is already registered.');
                 break;
-            default: 
+            default:
                 res.send('There was an error processing your registration.')
                 console.log(e)
                 break;
@@ -157,6 +158,3 @@ function countryLookup(name) {
 app.get('/countries/:name', (req, res)=> {
     res.render('polity', {'country': countryLookup(req.params.name)});
 })
-
-
-
