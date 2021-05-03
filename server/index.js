@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const ejs = require('ejs');
 const bcrypt = require('bcrypt');
+const dilemmas = require('./dilemmas.js');
 
-const {Player, Country} = require('./models.js');     // Game models
+const {Player} = require('./models.js');     // Game models
 const { Recoverable } = require('repl');
 
 // Environmental variables
@@ -82,12 +83,16 @@ app.post('/welcome', (req, res) => {
     res.send('SUCCESS');
 });
 
-
-//decision posting
-app.post('/writeDecision', function(req,res){
-  res.redirect('/about');
+// TODO: random dilemma no repeats
+app.get('/dilemma', function(req, res){
+  console.log(dilemmas[0])
+  res.render('decisions', {dilemma: dilemmas[0]});
 });
 
+app.post('/decision', function(req, res){
+  console.log(req.body);
+  res.redirect('/');
+});
 
 //  TODO: Post routes for registration and login, country creation.
 
@@ -118,8 +123,30 @@ app.post('/register', async (req, res)=>{
 })
 
 app.get('/game/', authenticated, (req, res)=>{
-    res.render('game');
-})
+  console.log(req.session.country);
+  if(req.session.country){
+    res.render('game', {country: req.session.country});
+  } else {
+    res.render('firstTime');
+  }
+});
+
+app.post('/game/foundation', (req, res)=>{
+  Player.findById(req.session.userid, (error,result)=>{
+    if(error){
+      console.log(error);
+      res.send("error");
+    } else if(!result) {
+      res.redirect('/');
+    } else {
+      let country = {name: req.body.name};
+      result.country = country;
+      result.save();
+      req.session.country = country
+      res.redirect('/game/');
+    }
+  });
+});
 
 app.post('/login', (req, res)=>{
     Player.findOne({username: req.body.username}, async (error, result) => {
@@ -137,6 +164,7 @@ app.post('/login', (req, res)=>{
                     req.session.isauthenticated="true";
                     req.session.userid = result._id;
                     req.session.username = result.username;
+                    req.session.country = result.country;
                     res.redirect('/game/');
                 }
                 else res.send('Incorrect password!');

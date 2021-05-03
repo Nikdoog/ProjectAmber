@@ -58,9 +58,7 @@ const populationSchema = new mongoose.Schema({
 const countrySchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
         unique: true,
-        default: 'Marsville'
     },
     demographics: {
         type: populationSchema,
@@ -79,41 +77,6 @@ const countrySchema = new mongoose.Schema({
     }
 });
 
-const Country = mongoose.model('Country', countrySchema, 'Countries');
-
-
-//
-// DECISIONS
-//
-
-const choiceSchema = new mongoose.Schema({
-    // A description of the choice.  Should give some hint as to likely outcomes.
-    description: {
-        type: String,
-        required: true
-    },
-    //  How the result is described in text
-    result: {
-        type: String,
-        required: true
-    },
-    //  Resource cost to make this decision.  Some decisions may not be available if you have insufficient resources.
-    cost: {
-        type: stockpileSchema,
-    },
-    outcomes: {}
-});
-
-const decisionSchema = new mongoose.Schema({
-    question: {
-        type: String,
-        required: true
-    },
-    choices: {
-        type:[choiceSchema]
-    },
-
-})
 
 
 //
@@ -132,7 +95,7 @@ const playerSchema = new mongoose.Schema({
         required: true
     },
     country: {
-        type: ObjectID,
+        type: countrySchema,
     },
     isAdmin: {
         type: Boolean,
@@ -144,4 +107,4 @@ const Player = mongoose.model('Player', playerSchema, 'Players');
 
 // Export
 
-module.exports = {Player, Country}
+module.exports = {Player}
