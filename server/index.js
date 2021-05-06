@@ -161,7 +161,7 @@ app.post('/game/foundation', (req, res)=>{
     } else {
       result.country.name = req.body.name;
       result.save();
-      req.session.country = country
+      req.session.country = result.country;
       res.redirect('/game/');
     }
   });
@@ -180,7 +180,7 @@ app.get('/game/', authenticated, (req, res)=>{
             res.send('Aw shucks.');
         }
         else {
-            if(result.country)
+            if(result.country.name)
                 res.render('game', {country: result.country});
             else
                 res.render('firstTime');
