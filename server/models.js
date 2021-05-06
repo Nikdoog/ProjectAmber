@@ -96,6 +96,24 @@ const playerSchema = new mongoose.Schema({
     },
     country: {
         type: countrySchema,
+        default: {
+            demographics: {
+                Fenguli: 100,
+                Ascended: 100,
+                Cosmeys: 100
+            },
+            character: {
+                happiness: 10,
+                productivity: 10,
+                culture: 10
+            },
+            resources: {
+                pizzas: 100,
+                ore: 0,
+                energy: 0,
+                water: 0
+            }
+        }
     },
     isAdmin: {
         type: Boolean,

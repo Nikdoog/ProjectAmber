@@ -97,7 +97,10 @@ app.post('/register', async (req, res)=>{
         newUser.username = req.body.username;
         newUser.password = hash;
         await newUser.save();
-        req.session.isauthenticated=true;
+        req.session.isauthenticated = true;
+        req.session.userid = newUser._id;
+        req.session.country = newUser.country;
+        console.log(req.session)
         res.redirect('/game/');
     }
     catch(e) {
@@ -178,7 +181,7 @@ app.get('/game/', authenticated, (req, res)=>{
         }
         else {
             if(result.country)
-                res.render('game', {country: result});
+                res.render('game', {country: result.country});
             else
                 res.render('firstTime');
         }
@@ -193,7 +196,7 @@ app.get('/countries/:name', (req, res)=> {
 
 // DILEMMAS
 
-app.get('/dilemma', function(req, res){
+app.get('/dilemma/', function(req, res){
     console.log(dilemmas[0])
     res.render('decisions', {dilemma: dilemmas[0]});
   });
