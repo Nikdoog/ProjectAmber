@@ -83,20 +83,9 @@ app.post('/welcome', (req, res) => {
     res.send('SUCCESS');
 });
 
-// TODO: random dilemma no repeats
-app.get('/dilemma', function(req, res){
-  console.log(dilemmas[0])
-  res.render('decisions', {dilemma: dilemmas[0]});
-});
 
-app.post('/decision', function(req, res){
-  console.log(req.body);
-  res.redirect('/');
-});
+// AUTHENTICATION
 
-//  TODO: Post routes for registration and login, country creation.
-
-// testing
 app.get('/register', (req, res) => {
     res.render('register', {data: req.session});
 });
@@ -104,7 +93,9 @@ app.get('/register', (req, res) => {
 app.post('/register', async (req, res)=>{
     try {
         let hash = await bcrypt.hash(req.body.password, 10);
-        let newUser = new Player({username: req.body.username, password: hash})
+        let newUser = new Player();
+        newUser.username = req.body.username;
+        newUser.password = hash;
         await newUser.save();
         req.session.isauthenticated=true;
         res.redirect('/game/');
@@ -121,32 +112,6 @@ app.post('/register', async (req, res)=>{
         }
     }
 })
-
-app.get('/game/', authenticated, (req, res)=>{
-  console.log(req.session.country);
-  if(req.session.country){
-    res.render('game', {country: req.session.country});
-  } else {
-    res.render('firstTime');
-  }
-});
-
-app.post('/game/foundation', (req, res)=>{
-  Player.findById(req.session.userid, (error,result)=>{
-    if(error){
-      console.log(error);
-      res.send("error");
-    } else if(!result) {
-      res.redirect('/');
-    } else {
-      let country = {name: req.body.name};
-      result.country = country;
-      result.save();
-      req.session.country = country
-      res.redirect('/game/');
-    }
-  });
-});
 
 app.post('/login', (req, res)=>{
     Player.findOne({username: req.body.username}, async (error, result) => {
@@ -176,13 +141,89 @@ app.post('/login', (req, res)=>{
     })
 })
 
-//  TODO: look up country by id
-function countryLookup(name) {
-    console.log(name)
-    let testland = new Country();
-    return testland;
-}
+//
+// GAME
+//
+
+
+// FIRST TIME PLAYING
+
+app.post('/game/foundation', (req, res)=>{
+  Player.findById(req.session.userid, (error,result)=>{
+    if(error){
+      console.log(error);
+      res.send("error");
+    } else if(!result) {
+      res.redirect('/');
+    } else {
+      result.country.name = req.body.name;
+      result.save();
+      req.session.country = country
+      res.redirect('/game/');
+    }
+  });
+});
+
+// HOME SCREEN
+
+
+app.get('/game/', authenticated, (req, res)=>{
+    Player.findById(req.session.userid, (error, result)=>{
+        if(error) {
+            console.log(error);
+            res.send('Oops!');
+        }
+        else if(!result) {
+            res.send('Aw shucks.');
+        }
+        else {
+            if(result.country)
+                res.render('game', {country: result});
+            else
+                res.render('firstTime');
+        }
+    })
+  });
+
+// VIEWING OTHER COUNTRIES
 
 app.get('/countries/:name', (req, res)=> {
     res.render('polity', {'country': countryLookup(req.params.name)});
 })
+
+// DILEMMAS
+
+app.get('/dilemma', function(req, res){
+    console.log(dilemmas[0])
+    res.render('decisions', {dilemma: dilemmas[0]});
+  });
+  
+app.post('/decision', function(req, res){
+    console.log(req.body);
+    res.redirect('/');
+});
+
+//
+//  UTILITY FUNCTIONS
+//
+
+
+//  Look up country by name.  Can return null.
+
+function countryLookup(name) {
+    Player.findOne({'country.name': name}, (error, result)=>{
+        if(error) {
+            console.log(error);
+            return null;
+        }
+        else if(!result) {
+            return null;
+        }
+        else {
+            console.log(result);
+            return(result);
+        }
+    })
+}
+
+
