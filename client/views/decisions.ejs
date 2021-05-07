@@ -1,0 +1,20 @@
+<html>
+  <head>
+      <title>Decisions</title>
+  </head>
+
+  <body>
+      <h1><%=dilemma.title%></h1>
+      <p><%=dilemma.description%></p>
+      <%dilemma.decisions.forEach(element=>{%>
+        <form action="decision" method="POST">
+          <input name="decision" type="hidden" value="<%=element.advisor%>" />
+          <input name="dilemma" type="hidden" value="<%=dilemma.pin%>" />
+          <p><%=element.advisor%>: <%=element.description%></p>
+          <button type="submit">Choose</button>
+        </form>
+      <%});%>
+
+
+  </body>
+</html>
