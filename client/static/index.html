@@ -5,19 +5,14 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"></script>
+    <link href="/stylesheet.css" rel="stylesheet"/>
 </head>
+
 <body>
-<h1>Hello, and welcome to the amber skeleton. This page was brought to you by worldbuilder, Thomas Mahoney</h1>
-<p>Here are the links.</p>
 
-<a href="about.html">About us</a>
-
-<a href="game.html">The game</a>
-
-<a href="profile.html">Profiles</a>
-
-<!--for testing purposes only-->
-<a href="adminpanel.html">Admin Panel</a>
+<div class="content">
+    <h1 align="center">For the Love of Martians</h1>
+<a style="text-align:center" href="about.html">About the game</a>
 
 <form method="post" action="login">
     <table>
@@ -64,6 +59,7 @@
 </form></td>
 </tr>
 </table>
+</div>
 <script>
     $(()=>{
         $('#regname, #pw, #pwconfirm').on('keyup', (key)=>{

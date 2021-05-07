@@ -32,6 +32,11 @@ const dilemmas=[{
     description: "Lets find a middle ground",
     outcome: "moderate integration of sustainable products into society"
   }]
-}];
+},{
+  pin: 3,
+  title: "Green and pleasant"
+  description: ""
+}
+];
 
 module.exports = dilemmas;
