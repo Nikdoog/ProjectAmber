@@ -5,21 +5,7 @@ const session = require('express-session');
 const ejs = require('ejs');
 const bcrypt = require('bcrypt');
 const dilemmas = require('./dilemmas.js');
-
-<<<<<<< HEAD
-// testing
-const dotenv = require('dotenv').config();
-const session = require('express-session');
-
-const port = process.env.PORT || 4000;
-
-const sessionSecret = process.env.SECRET || 'chips';
-
-// Navigation
-=======
 const {Player} = require('./models.js');     // Game models
-const { Recoverable } = require('repl');
->>>>>>> f67a9b5e893754d0c4a1d17bd4102fd3d52939b6
 
 // Environmental variables
 const dotenv = require('dotenv').config();
@@ -240,21 +226,3 @@ function countryLookup(name) {
         }
     })
 }
-
-<<<<<<< HEAD
-// testing
-app.use(session({
-    cookie: {
-        maxAge: 1000*60*60*24*7,
-        secure: false
-    },
-    key: 'user_sid',
-    secret: sessionSecret,
-    resave: false,
-    saveUninitialized: false,
-    name: 'ProjectAmber'
-}));
-=======
->>>>>>> f67a9b5e893754d0c4a1d17bd4102fd3d52939b6
-
-app.listen(port);
