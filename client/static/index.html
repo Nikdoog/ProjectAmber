@@ -1,51 +1,83 @@
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
+<title>Amber Skeleton</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
 </head>
 <body>
+<h1>Hello, and welcome to the amber skeleton. This page was brought to you by worldbuilder, Thomas Mahoney</h1>
+<p>Here are the links.</p>
 
-<div class="topnav">
-  <a class="active" href="index.html">Home</a>
-  <a href="game.html">The game</a>
-  <a href="profile.html">Profile</a>
-  <a href="about.html">About us</a>
-</div>
+<a href="about.html">About us</a>
 
 <div style="padding-left:16px">
   <h2>Hello, and welcome to For The Love Of Martians!</h2>
   <p>Uh-oh! Your child has fallen in love with an heir to the rival kingdom! You want them to be happy, but can you turn this into a beautiful frenemyship in a multiplayer nation-building simulator like no other?</p>
 
-</div>
+<a href="profile.html">Profiles</a>
 
+<!--for testing purposes only-->
+<a href="adminpanel.html">Admin Panel</a>
+
+<form method="post" action="login">
+    <table>
+        <tr>
+            <th colspan="2">
+                Log in
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                <input type="text" name="username"/>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                <input type="password" name="password"/>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">
+                    Log In
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<table>
+    <tr>
+<td><form id="registration" action="register" method="POST">
+    New Username: <input type="text" name="username" id="regname" /><br/>
+    Password: <input type="password" name="password" id="pw" /><br/>
+    Confirm Password: <input type="password" id="pwconfirm" /><br/>
+    <div align="center"><button type="submit" id="registerbutton" disabled>Welcome!</button></div>
+</form></td>
+</tr>
+</table>
+<script>
+    $(()=>{
+        $('#regname, #pw, #pwconfirm').on('keyup', (key)=>{
+            if($('#regname').val() == ''
+                || $('#pw').val() == ''
+                || $('#pw').val()!=$('#pwconfirm').val()) {
+                $('#registerbutton').prop('disabled', 'true');
+            }
+            else {
+                $('#registerbutton').removeAttr('disabled');
+            }
+        })
+    });
+    </script>
 </body>
 </html>
