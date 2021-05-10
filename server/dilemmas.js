@@ -49,7 +49,7 @@ const dilemmas=[{
   pin: 101,
   title: "Wheel of fortune.",
   description: "new city is being planned with the uptick in population, what sort of transportation infrastructure you wish to build?",
-  decisions: 
+  decisions: [{
     advisor: "Ethos",
     description: "I cannot see why we cannot have both. Old earthling societies like Buffalo, NY have mixed public and private! They had a light rail and buses for public choices and bikes and automobiles for private! Win-win!",
     outcome: "NIMBY and YIMBY group arguments end in shaken hands. Your economy slows down but the morale gets a strong boost"
@@ -59,7 +59,7 @@ const dilemmas=[{
     outcome: "Big Board receives record profits and your new city develops a nice boarding subculture, boost to economy and culture."
   }, {
     advisor: "Logos",
-    description: "I select public options like trains. Every pizza spent on public transit gives you four pizzas back in economic output sire. Human societies on earth like England and Japan thrive with a strong public option"
+    description: "I select public options like trains. Every pizza spent on public transit gives you four pizzas back in economic output sire. Human societies on earth like England and Japan thrive with a strong public option",
     outcome: "The city's public transportation goes so well it becomes a tourist attraction to ride the trains. Boost to economy and morale."
   }]
 },{ 
