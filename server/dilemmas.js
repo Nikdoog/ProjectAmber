@@ -117,7 +117,6 @@ const dilemmas=[{
     advisor: "Mr Franc",
     description: "Oh come on. The humans of old gladly shared their knowledge with us, including allowing us to repurpose their colonies into our cities AND we hold service in temples that were repurposed to be laboratories for their ascension project. I don't see this as being too much of a stretch from that.",
     outcome: "Recycle kids!"
-}
 }];
 
 module.exports = dilemmas;
