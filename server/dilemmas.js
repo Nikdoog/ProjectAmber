@@ -92,6 +92,32 @@ const dilemmas=[{
     description: "Today's GHEALACH and we do things the proper way! Your kingdom really needs you dear, and your absence could totally hurt the national morale! Besides, you only have to be there for the speech, keep it short and duck right out back into bed, dear. Don't worry, with my help and the royal doctor, you'll be in tip-top shape even if you do go!",
     outcome: "Your subjects are in awe of your resilience to be there for them, even during a sick day. You are touched by all the 'get well soon' wishes. Boost to morale!"
   }]
+},{
+  pin: 104,
+  title: "Shadow peppetry",
+  description: "Peppets a special type of martian grass that comes in a variety of different colors and scents. Peppetry is a hobby enjoyed by many martians that is done by planting the peppets in a way to 'draw' with plants but enough people have complained that the hobby is an eyesore",
+  decisions: [{
+    advisor: "No-to-peppetry-foundation",
+    description: "These stupid grasses are a mess to look at and they're lowering my property value! Sire, we at the no-to-peppetry-foundation strongly advise you to ban this hobby so I can have more comfort at home",
+    outcome: "Martian homeowners associations enjoy a nice boost in their authority."
+  }, {
+    advisor: "Yes-to-peppetry foundation",
+    description: "It's NOT stupid! It's art! Sire, please keep peppetry legal. They increase the biodiversity of our lawns and it allows homeowners to show off their skills and their personalities",
+    outcome: "Stick it to the HOA!"
+}
+},{
+  pin: 105,
+  title: "One man's trash is a martian's treasure",
+  description: "Martians are debating on whether or not to use some of the ancient human artifacts and repurpose them for martian use",
+  decisions: [{
+    advisor: "Weldo the curator",
+    description: "Does anyone have respect to our wise ancestors anymore? Sire, you cannot possibly listen to them. These artifacts tell a story about our heritage and should be appreciated.",
+    outcome: "Culture is cool."
+  }, {
+    advisor: "Mr Franc",
+    description: "Oh come on. The humans of old gladly shared their knowledge with us, including allowing us to repurpose their colonies into our cities AND we hold service in temples that were repurposed to be laboratories for their ascension project. I don't see this as being too much of a stretch from that.",
+    outcome: "Recycle kids!"
+}
 }];
 
 module.exports = dilemmas;
