@@ -9,7 +9,7 @@
       <%dilemma.decisions.forEach(element=>{%>
         <form action="decision" method="POST">
           <input name="decision" type="hidden" value="<%=element.advisor%>" />
-          <input name="dilemma" type="hidden" value="<%=dilemma.pin%>" />
+          <input name="dilemma" type="hidden" value="<%=numDil%>" />
           <p><%=element.advisor%>: <%=element.description%></p>
           <button type="submit">Choose</button>
         </form>

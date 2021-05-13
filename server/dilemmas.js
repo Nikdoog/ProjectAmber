@@ -62,7 +62,7 @@ const dilemmas=[{
     description: "I select public options like trains. Every pizza spent on public transit gives you four pizzas back in economic output sire. Human societies on earth like England and Japan thrive with a strong public option",
     outcome: "The city's public transportation goes so well it becomes a tourist attraction to ride the trains. Boost to economy and morale."
   }]
-},{ 
+},{
   pin: 102,
   title: "Quit your wining!",
   description: "Your kingdom's wine scene has grown to great promenience over the years and now it is time to set a legal drinking age.",
@@ -79,7 +79,7 @@ const dilemmas=[{
     description: "our biology has many differences to our human predecessors. Martians are found to have been particularly sensitive to alcoholic products. I think we should wait much longer before a drink! My studies have led me to the conclusion that a drinking age of 26 is most reasonable.",
     outcome: "Your subjects enjoy longer term health as predicted by Dr. Crates' predictions and alcohol-related crime plummets to an all-time low. Boost to morale!"
   }]
-},{ 
+},{
   pin: 103,
   title: "Fly me to the moons",
   description: "your Kingdom celebrates a holiday known as ghealach for the first twin full moons of the year. It consists of a day off from work, a visit tothe ascended shrines, and a big festival in the evening believed to bring good fortune for the rest of the year. Traditionally, you give a speech right before the festivities begin but you are feeling particularly unwell. You know you should rest, but you know your kingdom is counting on you.",
@@ -92,7 +92,6 @@ const dilemmas=[{
     description: "Today's GHEALACH and we do things the proper way! Your kingdom really needs you dear, and your absence could totally hurt the national morale! Besides, you only have to be there for the speech, keep it short and duck right out back into bed, dear. Don't worry, with my help and the royal doctor, you'll be in tip-top shape even if you do go!",
     outcome: "Your subjects are in awe of your resilience to be there for them, even during a sick day. You are touched by all the 'get well soon' wishes. Boost to morale!"
   }]
-},{ 
 }];
 
 module.exports = dilemmas;
