@@ -1,4 +1,4 @@
-const dilemmas=[{
+const dilemmas= [{
   pin: 1,
   title: "Moongrass is IN",
   description: "It has come to your attention that many of your subjects are using a recreational substance known as 'MoonGrass' to experience artificial highs.",
@@ -104,8 +104,8 @@ const dilemmas=[{
     advisor: "Yes-to-peppetry foundation",
     description: "It's NOT stupid! It's art! Sire, please keep peppetry legal. They increase the biodiversity of our lawns and it allows homeowners to show off their skills and their personalities",
     outcome: "Stick it to the HOA!"
-}
-},
+}]
+},{
   pin: 105,
   title: "One man's trash is a martian's treasure",
   description: "Martians are debating on whether or not to use some of the ancient human artifacts and repurpose them for martian use",
@@ -117,6 +117,7 @@ const dilemmas=[{
     advisor: "Mr Franc",
     description: "Oh come on. The humans of old gladly shared their knowledge with us, including allowing us to repurpose their colonies into our cities AND we hold service in temples that were repurposed to be laboratories for their ascension project. I don't see this as being too much of a stretch from that.",
     outcome: "Recycle kids!"
+}]
 }];
 
 module.exports = dilemmas;
