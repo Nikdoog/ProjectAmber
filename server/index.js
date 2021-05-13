@@ -5,9 +5,7 @@ const session = require('express-session');
 const ejs = require('ejs');
 const bcrypt = require('bcrypt');
 const dilemmas = require('./dilemmas.js');
-
 const {Player} = require('./models.js');     // Game models
-const { Recoverable } = require('repl');
 
 // Environmental variables
 const dotenv = require('dotenv').config();
@@ -228,5 +226,3 @@ function countryLookup(name) {
         }
     })
 }
-
-
