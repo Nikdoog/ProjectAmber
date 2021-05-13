@@ -105,7 +105,7 @@ const dilemmas=[{
     description: "It's NOT stupid! It's art! Sire, please keep peppetry legal. They increase the biodiversity of our lawns and it allows homeowners to show off their skills and their personalities",
     outcome: "Stick it to the HOA!"
 }
-},{
+},
   pin: 105,
   title: "One man's trash is a martian's treasure",
   description: "Martians are debating on whether or not to use some of the ancient human artifacts and repurpose them for martian use",
