@@ -1,0 +1,22 @@
+<html>
+  <head>
+      <title>Decisions</title>
+      <link href="/stylesheet.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <div class="content">
+      <h1><%=dilemma.title%></h1>
+      <p><%=dilemma.description%></p>
+      <%dilemma.decisions.forEach(element=>{%>
+        <form action="decision" method="POST">
+          <input name="decision" type="hidden" value="<%=element.advisor%>" />
+          <input name="dilemma" type="hidden" value="<%=numDil%>" />
+          <p><%=element.advisor%>: <%=element.description%></p>
+          <button type="submit">Choose</button>
+        </form>
+      <%});%>
+
+    </div>
+  </body>
+</html>

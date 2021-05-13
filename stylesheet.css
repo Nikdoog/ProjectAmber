@@ -1,0 +1,33 @@
+
+
+
+body{background-color:brown;
+
+
+}
+h1{
+color:rgba(201,202,203);
+}
+p{
+color:red
+}
+.button{background-color: rosybrown;
+    border:none;
+    color:orchid;
+    padding:15px,20px;
+    text-align:center;
+    text-decoration:none;
+    display:inset-inline-start;
+    font-size: 20px;
+}
+a:link{color:white;
+}
+a:visited{
+    color:black;
+}
+a:hover{
+    color:powderblue;
+}
+a:active{
+    color:rosybrown;
+}
