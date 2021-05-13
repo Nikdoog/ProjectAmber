@@ -118,6 +118,10 @@ const playerSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    dilemmaNumber: {
+      type: Number,
+      default: 0
     }
 });
 
