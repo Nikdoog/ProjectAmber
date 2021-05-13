@@ -5,6 +5,9 @@ Country Homepage
   </head>
 
   <body>
+    <%- include('navbar.ejs') %>
+
+    
     <h1><%=country.name%></h1>
     <p>Pizzas: <%=country.resources.pizzas%></p>
     <p>Ore: <%=country.resources.ore%></p>
