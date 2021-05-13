@@ -1,27 +1,32 @@
 <html>
 <head>
-<title>Amber Skeleton</title>
+<title>Amber Prototype</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"></script>
+    <link href="/stylesheet.css" rel="stylesheet"/>
+<style>
+    .center {
+        margin: auto;
+        width: 60%;
+        border: 3px solid #73AD21;
+        padding: 10px;
+    }
+</style>
 </head>
 <body>
-<h1>Hello, and welcome to the amber skeleton. This page was brought to you by worldbuilder, Thomas Mahoney</h1>
-<p>Here are the links.</p>
-
-<a href="about.html">About us</a>
+<h1 align="center">For the Love of Martians!</h1>
 
 <div style="padding-left:16px">
   <h2>Hello, and welcome to For The Love Of Martians!</h2>
   <p>Uh-oh! Your child has fallen in love with an heir to the rival kingdom! You want them to be happy, but can you turn this into a beautiful frenemyship in a multiplayer nation-building simulator like no other?</p>
+</div>
+
 
 <a href="profile.html">Profiles</a>
 
-<!--for testing purposes only-->
-<a href="adminpanel.html">Admin Panel</a>
-
 <form method="post" action="login">
-    <table>
+    <table align="center">
         <tr>
             <th colspan="2">
                 Log in
@@ -55,7 +60,7 @@
     </table>
 </form>
 
-<table>
+<table align="center">
     <tr>
 <td><form id="registration" action="register" method="POST">
     New Username: <input type="text" name="username" id="regname" /><br/>
@@ -65,6 +70,7 @@
 </form></td>
 </tr>
 </table>
+</div>
 <script>
     $(()=>{
         $('#regname, #pw, #pwconfirm').on('keyup', (key)=>{

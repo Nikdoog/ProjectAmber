@@ -5,9 +5,7 @@ const session = require('express-session');
 const ejs = require('ejs');
 const bcrypt = require('bcrypt');
 const dilemmas = require('./dilemmas.js');
-
 const {Player} = require('./models.js');     // Game models
-const { Recoverable } = require('repl');
 
 // Environmental variables
 const dotenv = require('dotenv').config();
@@ -198,12 +196,38 @@ app.get('/countries/:name', (req, res)=> {
 
 app.get('/dilemma/', function(req, res){
     console.log(dilemmas[0])
-    res.render('decisions', {dilemma: dilemmas[0]});
-  });
-  
+    Player.findById(req.session.userid, (error,result)=>{
+      if(error) {
+        console.log(error);
+        res.send('No Player');
+      } else if(!result) {
+        res.send('Oops!');
+      } else {
+        if(result.dilemmaNumber==dilemmas.length){
+          res.send('Thank you for playing our prototype');
+        }
+        else{
+          res.render('decisions', {dilemma: dilemmas[result.dilemmaNumber], numDil: result.dilemmaNumber});
+        }
+      }
+    });
+});
+
 app.post('/decision', function(req, res){
     console.log(req.body);
-    res.redirect('/');
+    let dilemmaLen = dilemmas.length;
+    Player.findById(req.session.userid, (error,result)=>{
+      if(error) {
+        console.log(error);
+        res.send('No Player');
+      } else if(!result) {
+        res.send('Oops!');
+      } else {
+          result.dilemmaNumber += 1;
+          result.save();
+          res.redirect('game');
+      }
+    });
 });
 
 //
@@ -228,6 +252,3 @@ function countryLookup(name) {
         }
     })
 }
-
-
-app.listen(port);
