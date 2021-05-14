@@ -104,7 +104,7 @@ app.post('/register', async (req, res)=>{
     catch(e) {
         switch(e.code) {
             case 11000:
-                res.send('That username is already registered.');
+                alert('That username is already registered.');
                 break;
             default:
                 res.send('There was an error processing your registration.')
